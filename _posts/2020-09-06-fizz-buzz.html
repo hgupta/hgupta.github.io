@@ -1,0 +1,127 @@
+---
+layout: post
+title: Yet another FizzBuzz in JavaScript
+slug: yet-another-fizzbuzz-in-javascript
+date: 2020-09-06
+category: interview
+tags: javascript fizz-buzz fizzbuzz interview hello-world es6 generators
+css:
+  - 'prism.min.css'
+js:
+  - 'prism.min.js'
+---
+{% include youtube.html id="b56eAUCTLok" %}
+<p>
+In my bid to introduce myself to the programming world, I imagined the best
+way could be to show my capability to solve basic interview programming
+problem, the once too popular, the <code>FizzBuzz problem</code>.
+</p>
+<p>
+A naive and intuitive implementation:
+</p>
+{% capture fizzbuzz-naive %}const fizzbuzz = (n = 100) => {
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0)
+      console.log('FizzBuzz')
+    else if (i % 3 === 0)
+      console.log('Fizz')
+    else if (i % 5 === 0)
+      console.log('Buzz')
+    else
+      console.log(i)
+  }
+}
+fizzbuzz(100)
+{% endcapture %}
+{% include code.html heading="FizzBuzz - Naive" code=fizzbuzz-naive %}
+<p>
+But the programmer in me will not be happy with this solution, for following reasons:
+<ul>
+  <li>There is a repetition of conditional logics.</li>
+  <li>Additional logics cannot be easily added to existing solution, e.g. if divisible by 7, print <i>baz</i>.</li>
+  <li>The starting value is fixed at 1.</li>
+  <li>I would prefer to return values rather than `print` in the function.</li>
+</ul>
+</p>
+
+{% capture fb-better %}
+const range = (start, end) => Array.from(
+  { length: end - start },
+  (v, k) => k + start
+)
+
+const fzReducer = i =>
+  (evalued, evaluator) => evalued + evaluator(i)
+
+const fzMapper = evaluators =>
+  i => evaluators.reduce(fzReducer(i), '') || i
+
+const fizzbuzz = (n, ...evaluators) => {
+  let [a, b] = Number.isInteger(evaluators[0])
+    ? [n, evaluators.shift()]
+    : [1, n]
+
+  return range(a, b + 1).map(fzMapper(evaluators))
+}
+
+const createFZEvaluator = (n, msg) => i => i % n === 0 ? msg : ''
+let evaluators = [
+  createFZEvaluator(3, 'Fizz'),
+  createFZEvaluator(5, 'Buzz')
+]
+
+let fizzbuzzes = fizzbuzz(100, ...evaluators)
+fizzbuzzes.forEach(fz => console.log(fz))
+{% endcapture %}
+{% include code.html heading="FizzBuzz - Better" code=fb-better %}
+<p>
+Although this code manages to counter many issues caused by the naive
+implementation, it still passes around a 2 arrays. Once when `range` method
+returns an array, second when `fizzbuzz` returns array of result. This issue
+can be resolved using
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator">
+  Generators
+</a>
+</p>
+
+<p>
+A simple solution using Generators.
+</p>
+{% capture fb-gen %}
+function* range(start, end, interval = 1) {
+  for(let i = start; i < end; i = i + interval) {
+    yield i
+  }
+}
+
+function getFizzbuzz(getEvaluators) {
+  return function* fizzbuzz(min, max) {
+    let [a, b] = max === void 0 ? [1, min] : [min, max]
+
+    for(let j of range(a, b + 1)) {
+      let evaluated = ''
+      for(let evaluator of getEvaluators()) {
+        evaluated = evaluated + evaluator(j)
+      }
+      yield (evaluated || j)
+    }
+  }
+}
+
+const createFZEvaluator = ([n, msg]) => i => i % n === 0 ? msg : ''
+const evaluators = [
+  [3, 'Fizz'],
+  [5, 'Buzz']
+].map(createFZEvaluator)
+
+function* getEvaluators() {
+  for(let evaluator of evaluators) {
+    yield evaluator
+  }
+}
+
+const fizzbuzz = getFizzbuzz(getEvaluators)
+let fizzbuzzes = fizzbuzz(100, 110)
+for (let fz of fizzbuzzes) { console.log(fz) }
+{% endcapture %}
+{% include code.html heading="FizzBuzz - Generators" code=fb-gen %}

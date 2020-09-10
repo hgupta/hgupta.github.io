@@ -1,0 +1,14 @@
+{% if include.languageName %}
+  {% assign languageName = include.languageName %}
+  {% else %}
+  {% assign languageName = 'JavaScript' %}
+{% endif %}
+{% if include.lineNums %}
+  {% assign lineNums = 'line-numbers ' %}
+  {% else %}
+  {% assign lineNums = '' %}
+{% endif %}
+<pre class="{{ lineNums }}code rounded m-0 mb-3">
+  <code class="language-{{languageName}}">{{ include.code }}</code>
+</pre>
+

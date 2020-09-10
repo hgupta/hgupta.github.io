@@ -1,0 +1,5 @@
+{% if site.cssu %}{% for e in site.cssu %}<link rel="stylesheet" href={{ e | absolute_url }}>{% endfor %}{% endif %}
+{% if page.cssu %}{% for e in page.cssu %}<link rel="stylesheet" href={{ e | absolute_url }}>{% endfor %}{% endif %}
+{% if site.css %}{% for e in site.css %}<link rel="stylesheet" href={{ "/public/css/" | append: e | absolute_url }}>{% endfor %}{% endif %}
+{% if page.css %}{% for e in page.css %}<link rel="stylesheet" href={{ "/public/css/" | append: e | absolute_url }}>{% endfor %}{% endif %}
+

@@ -1,0 +1,66 @@
+langID: en-IN
+
+title: lipyantaranam
+tagline: transliterating programming to code
+subtitle: by Harsh Gupta
+description: >-
+  a blog by Harsh Gupta on transliterating programming to human understanding.
+ipa: "lipjənt̪ərənəm"
+iast: "लिप्यन्तरनम्"
+
+baseurl: /
+url: https://hgupta.github.io/
+permalink: /:title
+
+css:
+  - bootstrap.min.css
+  - mine.css
+
+js:
+  - utils.js
+  - nav-highlighter.js
+
+author:
+  name: Harsh Gupta
+  location: New Delhi
+  email: abc@abc.com
+  website: https://hgupta.github.io/
+  social:
+    github: https://github.com/hgupta
+    linkedin: https://linkedin.com/in/hg-harshgupta/
+
+collections:
+  competitive_programming:
+    output: true
+    permalink: /competitive-programming/:title
+  algorithms:
+    output: true
+    permalink: /algorithm/:title
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      permalink: "/post/:title"
+
+license:
+  type: MIT
+  url: https://github.com/hgupta/hgupta.github.io/blob/master/LICENSE
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-paginate
+
+excerpt_separator: <!-- end-excerpt -->
+
+formats:
+  dates:
+    posts: "%b %d, %Y"
+
+paginate: 30
+paginate_path: "/posts/:num/"

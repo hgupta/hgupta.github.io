@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" prefix="og: http://opg.me/ns# article: http://ogp.me/ns/article#">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include title.html %}
+    {% include seo.html %}
+    {% include css.html %}
+    {% include js.html %}
+  </head>
+  <body>
+    <div class="d-flex justify-content-center">
+      <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12">
+        {% include header.html %}
+        <div class="main pt-3">
+          <div class="d-flex flex-column text-justify">
+            {{ content }}
+          </div>
+        </div>
+        {% include footer.html %}
+      </div>
+    </div>
+  </body>
+</html>

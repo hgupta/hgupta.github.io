@@ -1,0 +1,5 @@
+---
+layout: base
+---
+{%- assign posts = site[page.collection] | where: 'draft', false -%}
+{% include collection-list.html data=posts %}

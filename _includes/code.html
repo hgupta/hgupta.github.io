@@ -1,0 +1,22 @@
+{% if include.languageName %}
+  {% assign languageName = include.languageName %}
+  {% else %}
+  {% assign languageName = 'JavaScript' %}
+{% endif %}
+{% if include.noLineNums %}
+  {% assign lineNums = '' %}
+  {% else %}
+  {% assign lineNums = 'line-numbers ' %}
+{% endif %}
+<div class="d-flex code-annotation rounded-top pl-2 pr-2">
+  <div class="mr-auto">
+    {{ include.heading }}
+  </div>
+  <div class="language">
+    [{{ languageName }}]
+  </div>
+</div>
+<pre class="{{lineNums}}code rounded-bottom m-0 mb-3">
+  <code class="language-{{languageName}}">{{ include.code }}</code>
+</pre>
+

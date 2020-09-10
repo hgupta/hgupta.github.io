@@ -1,0 +1,14 @@
+{%- assign lmt = include.limit | default: site.paginate -%}
+{% for datum in include.data limit:lmt %}
+<div class="d-flex flex-wrap align-items-center mb-3">
+  <div class="mr-auto posts--post-title m-0">
+    <a href="{{ datum.url | absolute_url }}">
+      {{ datum.title }}
+    </a>
+  </div>
+  {%- assign date_format = site.formats.dates.posts | default: "%F" -%}
+  <div class="posts--post-date">
+    {{ datum.date | date: date_format }}
+  </div>
+</div>
+{% endfor %}

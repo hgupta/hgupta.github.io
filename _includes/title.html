@@ -1,0 +1,6 @@
+{% capture title %}{{ site.title }},{{ site.subtitle }}{% endcapture %}
+{% if page.title != "" and page.title != nil %}
+{% assign title = title | prepend: "," | prepend: page.title %}
+{% endif %}
+<title>{{ title | split: "," | join: " &verbar; " }}</title>
+

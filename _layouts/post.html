@@ -1,0 +1,22 @@
+---
+layout: base
+---
+<div class="post d-flex flex-column">
+  <h4 class="post--title mb-0 text-left">
+    <span>{{ page.title }}</span>
+  </h4>
+  <div class="post--meta-info mt-0 mb-5 text-left">
+    Categorized as
+    <span class="font-weight-bold">{{ page.category }}</span>, posted on
+    <span class="font-italic">{{ page.date | date: site.formats.dates.posts }}</span>
+  </div>
+  <div class="post--content text-justify">
+    {{ content }}
+  </div>
+  <div class="post--tags text-muted mt-3 d-flex flex-wrap">
+    <div class="font-weight-bold mt-1 p-1">Tags:</div>
+    {%- for tag in page.tags -%}
+    <div class="post--tags--tag ml-2 mt-1 p-1 border rounded">{{ tag }}</div>
+    {%- endfor -%}
+  </div>
+</div>

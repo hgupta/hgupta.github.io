@@ -1,0 +1,4 @@
+{% if site.jsu %}{% for e in site.jsu %}<script src={{ e | absolute_url }} defer></script>{% endfor %}{% endif %}
+{% if page.jsu %}{% for e in page.jsu %}<script src={{ e | absolute_url }} defer></script>{% endfor %}{% endif %}
+{% if site.js %}{% for e in site.js %}<script src={{ "/public/js/" | append: e | absolute_url }} defer></script>{% endfor %}{% endif %}
+{% if page.js %}{% for e in page.js %}<script src={{ "/public/js/" | append: e | absolute_url }} defer></script>{% endfor %}{% endif %}

@@ -46,8 +46,12 @@ defaults:
       permalink: "/post/:title"
 
 license:
-  type: MIT
-  url: https://github.com/hgupta/hgupta.github.io/blob/master/LICENSE
+  -
+    type: MIT (website)
+    url: https://github.com/hgupta/hgupta.github.io/blob/master/LICENSE
+  -
+    type: GNU AGPL (icons)
+    url: https://github.com/hgupta/hgupta.github.io/blob/master/public/imgs/LICENSE
 
 markdown: kramdown
 kramdown:

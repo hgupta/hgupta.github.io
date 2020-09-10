@@ -1,17 +1,17 @@
 ---
 layout: base
 ---
-<div class="p-2 border border-secondary rounded">
+<div class="">
   <p class="font-weight-bold mb-2">Latest Posts</p>
   {%- assign posts = site.posts | where: 'draft', false -%}
   {% include collection-list.html data=posts limit=5 %}
 </div>
-<div class="p-2 mt-4 border border-secondary rounded">
+<div class="mt-5">
   <p class="font-weight-bold mb-2">Latest Competitive Programming</p>
   {%- assign cpss = site.competitive_programming | where: 'draft', false -%}
   {% include collection-list.html data=cpss limit=5 %}
 </div>
-<div class="p-2 mt-4 border border-secondary rounded">
+<div class="mt-5">
   <p class="font-weight-bold mb-2">Latest Algorithm implementations</p>
   {%- assign algos = site.algorithms | where: 'draft', false -%}
   {% include collection-list.html data=algos limit=5 %}

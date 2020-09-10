@@ -1,7 +1,8 @@
 <div class="footer d-flex flex-row align-items-center mt-3 pt-2 pb-3 border-top border-secondary">
   <span class="font-weight-bold">&#9426;</span>
   <span class="ml-2">
-    <a href="{{ site.license.url }}" target="_blank">{{ site.license.type }}</a>
+    <a href="{{ site.license[0].url }}" target="_blank">{{ site.license[0].type }}</a>
+    <a href="{{ site.license[1].url }}" target="_blank">{{ site.license[1].type }}</a>
   </span>
   <span class="ml-2">{{ site.author.name }}.</span>
   <span class="ml-2">All rights reserved.</span>

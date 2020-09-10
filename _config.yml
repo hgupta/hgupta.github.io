@@ -9,7 +9,7 @@ ipa: "lipjənt̪ərənəm"
 iast: "लिप्यन्तरनम्"
 
 baseurl: /
-url: https://hgupta.github.io/
+url: https://hgupta.github.io
 permalink: /:title
 
 css:

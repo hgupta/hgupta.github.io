@@ -8,11 +8,11 @@ layout: base
 </div>
 <div class="mt-5">
   <p class="font-weight-bold mb-2">Latest Competitive Programming</p>
-  {%- assign cpss = site.competitive_programming | where: 'draft', false -%}
+  {%- assign cpss = site.competitive_programming | where: 'draft', false | sort: 'date' | reverse -%}
   {% include collection-list.html data=cpss limit=5 %}
 </div>
 <div class="mt-5">
   <p class="font-weight-bold mb-2">Latest Algorithm implementations</p>
-  {%- assign algos = site.algorithms | where: 'draft', false -%}
+  {%- assign algos = site.algorithms | where: 'draft', false | sort: 'date' | reverse -%}
   {% include collection-list.html data=algos limit=5 %}
 </div>

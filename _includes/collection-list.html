@@ -1,24 +1,10 @@
 {%- assign lmt = include.limit | default: site.paginate -%}
-{% for datum in include.data limit:lmt %}
-  {%- assign fmt = site.formats.dates.posts | default: "%F" -%}
 <ul class="list-group list-group-flush collection">
+  {% for datum in include.data limit:lmt %}
+  {%- assign fmt = site.formats.dates.posts | default: "%F" -%}
   <li class="list-group-item d-flex justify-content-between align-items-center p-1">
     <a href="{{ datum.url | absolute_url }}">{{ datum.title }}</a>
     <span>{{ datum.date | date: fmt }}</span>
   </li>
+  {% endfor %}
 </ul>
-<!-- <div class="d-flex flex-wrap align-items-center border-bottom mb-3 collection"> -->
-<!--   <span class="font-italic mr-3 post-date">{{ datum.date | date: fmt }}</span> -->
-<!--   <a class="font-weight-bold post-title" href="{{ datum.url | absolute_url }}"> -->
-<!--     {{ datum.title }} -->
-<!--   </a> -->
-<!--   <div class="m-0 mr-auto post-title"> -->
-<!--     <a href="{{ datum.url | absolute_url }}"> -->
-<!--       {{ datum.title }} -->
-<!--     </a> -->
-<!--   </div> -->
-<!--   <div class="post-date"> -->
-<!--     {{ datum.date | date: fmt }} -->
-<!--   </div> -->
-<!-- </div> -->
-{% endfor %}

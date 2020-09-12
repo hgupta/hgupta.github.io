@@ -45,6 +45,16 @@ defaults:
       type: "posts"
     values:
       permalink: "/blog/:title"
+  -
+    scope:
+      path: ""
+      type: "competitive_programming"
+    values:
+      layout: "competitive-programming"
+      js:
+        - 'prism.min.js'
+      css:
+        - 'prism.min.css'
 
 license:
   copyright: "&#9426;"

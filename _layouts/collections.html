@@ -1,5 +1,5 @@
 ---
 layout: base
 ---
-{%- assign posts = site[page.collection] | where: 'draft', false -%}
+{%- assign posts = site[page.collection] | where: 'draft', false | sort: 'date' | reverse -%}
 {% include collection-list.html data=posts %}

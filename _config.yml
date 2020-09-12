@@ -11,6 +11,7 @@ iast: "लिप्यन्तरनम्"
 baseurl: /
 url: https://hgupta.github.io
 permalink: /:title
+logo: /public/imgs/logo.png
 
 css:
   - bootstrap.min.css
@@ -43,15 +44,16 @@ defaults:
       path: ""
       type: "posts"
     values:
-      permalink: "/post/:title"
+      permalink: "/blog/:title"
 
 license:
-  -
-    type: MIT (website)
-    url: https://github.com/hgupta/hgupta.github.io/blob/master/LICENSE
-  -
-    type: GNU AGPL (icons)
-    url: https://github.com/hgupta/hgupta.github.io/blob/master/public/imgs/LICENSE
+  copyright: "&#9426;"
+  type: CC BY-SA
+  title: Creative Commons Attribution-ShareAlike 4.0 International License
+  url: https://github.com/hgupta/hgupta.github.io/blob/master/LICENSE
+  ccbysa: http://creativecommons.org/licenses/by-sa/4.0/
+  ccbysaimg: /public/imgs/cc-by-sa.png
+  ccbysashield: /public/imgs/cc-by-sa-shield.svg
 
 markdown: kramdown
 kramdown:

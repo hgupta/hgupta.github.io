@@ -5,6 +5,9 @@ addEvent('DOMContentLoaded', document, () => {
 
   const path = document.location.pathname
   const paths = Array.prototype.map.call(navs, p => p.getAttribute('data-nav'))
+    .map(p => p.split('|'))
+    .flat()
+    .map(e => e.trim())
 
   let selected_nav = paths.filter(
     (p, i) => (
@@ -15,7 +18,7 @@ addEvent('DOMContentLoaded', document, () => {
 
   if (selected_nav.length === 1) {
     document
-      .querySelector(`[data-nav="${selected_nav[0]}"]`)
+      .querySelector(`[data-nav*="${selected_nav[0]}"]`)
       .firstElementChild
       .classList
       .add(class_name)

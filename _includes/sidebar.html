@@ -1,0 +1,40 @@
+<div class="d-flex flex-column justify-content-start text-right mr-3 p-3 sticky-top sidebar">
+  <div class="d-flex justify-content-center align-items-center ml-auto w-50 culture">
+    <span class="double-danda">&#2405;</span>
+    <img src="/public/imgs/shree.png" alt="" class="shree-icon">
+    <span class="double-danda">&#2405;</span>
+  </div>
+  <a href="{{ site.url }}" class="no-decoration">
+    <img src="{{ site.logo }}" alt="logo" class="border rounded-circle logo" />
+  </a>
+  <h2 class="mt-3 mb-5 site-title">
+    <a href="{{ site.url }}">{{ site.title }}</a>
+  </h2>
+  <div class="mb-3 nav-links">
+    <div class="mr-auto" data-nav="about"><a href="/about/">about</a></div>
+    <div class="mr-auto" data-nav="posts|blog"><a href="/posts/">Posts</a></div>
+    <div class="mr-auto" data-nav="algorithms"><a href="/algorithms/">Algorithms</a></div>
+    <div class="mr-auto" data-nav="competitive-programming"><a href="/competitive-programming/">Competitve Programming</a></div>
+  </div>
+  <div class="mb-5 social-links">
+    <a href="{{ site.author.social.github }}" class="ml-auto no-decoration" target="_blank">
+      <img src="{{ '/public/imgs/github.svg' | absolute_url }}" alt="Github">
+    </a>
+    <a href="{{ site.author.social.linkedin }}" class="ml-2 no-decoration" target="_blank">
+      <img src="{{ '/public/imgs/linkedin.svg' | absolute_url }}" alt="Linkedin">
+    </a>
+  </div>
+  <div class="disclaimer">
+    <div class="license">
+      <a href="{{ site.license.url }}" target="_blank">
+        <img src="{{ site.license.ccbysashield | safe }}" />
+      </a>
+    </div>
+    <div class="copyright">
+      <span class="font-weight-bold">{{ site.license.copyright }}</span>
+      <span class="ml-2">{{ site.author.name }}.</span>
+    </div>
+    <div class="rights">Some rights are reserved.</div>
+    <div class="version">Made with <a href="https://jekyllrb.com/" target="_blank">Jekyll v{{ jekyll.version }}</a>.</div>
+  </div>
+</div>

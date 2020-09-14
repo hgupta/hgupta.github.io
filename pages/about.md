@@ -40,7 +40,7 @@ Copyright {{ site.license.copyright }} 2020 Harsh Gupta. Some rights are reserve
 <img src="{{ site.license.ccbysaimg | absolute_url }}" alt="LICENSE CC BY-SA 4.0"/>
 
 Except where otherwise noted, content on this site is licensed under a
-[{{ site.license.title }}](site.license.ccbysa){:target="blank"}
+[{{ site.license.title }}]({{ site.license.ccbysa }}){:target="blank"}
 
 > __`Shree` symbol__ (top of page),
 I used the SVG icon from [here](https://www.flaticon.com/free-icon/shree_3100695){:target="_blank"}

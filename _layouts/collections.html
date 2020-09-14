@@ -1,5 +1,13 @@
 ---
 layout: base
 ---
-{%- assign posts = site[page.collection] | where: 'draft', false | sort: 'date' | reverse -%}
-{% include collection-list.html data=posts %}
+{% if page.datacoll %}
+{%- assign posts = site.data[page.collection] | reverse -%}
+{% else %}
+{%- assign posts = site[page.collection] | where: 'draft', false -%}
+{% endif %}
+{% if posts %}
+{% include collection-list.html data=posts template=page.template %}
+{% else %}
+No posts yet!
+{% endif %}

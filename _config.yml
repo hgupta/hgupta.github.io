@@ -30,14 +30,6 @@ author:
     github: https://github.com/hgupta
     linkedin: https://linkedin.com/in/hg-harshgupta/
 
-collections:
-  competitive_programming:
-    output: true
-    permalink: /competitive-programming/:title
-  algorithms:
-    output: true
-    permalink: /algorithm/:title
-
 defaults:
   -
     scope:
@@ -45,16 +37,6 @@ defaults:
       type: "posts"
     values:
       permalink: "/blog/:title"
-  -
-    scope:
-      path: ""
-      type: "competitive_programming"
-    values:
-      layout: "competitive-programming"
-      js:
-        - 'prism.min.js'
-      css:
-        - 'prism.min.css'
 
 license:
   copyright: "&#9426;"

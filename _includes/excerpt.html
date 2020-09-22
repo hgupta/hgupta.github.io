@@ -1,0 +1,18 @@
+{% assign post = include.post %}
+<div class="d-flex flex-column post">
+  <h4 class="mb-0 text-left post-title">
+    <a href="{{ post | absolute_url }}">
+      <span>{{ post.title }}</span>
+    </a>
+  </h4>
+  <div class="mt-0 mb-3 text-left meta-info">
+    Categorized as
+    <span class="font-weight-bold">{{ post.category }}</span>, posted on
+    <span class="font-italic">{{ post.date | date: site.formats.dates.posts }}</span>
+  </div>
+  <div class="text-justify post-content">
+    {{ post.excerpt }}
+  </div>
+  <hr />
+</div>
+

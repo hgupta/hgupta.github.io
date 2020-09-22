@@ -1,18 +1,7 @@
 ---
 layout: base
 ---
-<div class="">
-  <p class="font-weight-bold mb-2">Latest Posts</p>
-  {%- assign posts = site.posts | where: 'draft', false -%}
-  {% include collection-list.html template="posts" data=posts limit=5 %}
-</div>
-<div class="mt-5">
-  <p class="font-weight-bold mb-2">Latest Algorithm implementations</p>
-  {%- assign algos = site.data.algorithms | reverse -%}
-  {% include collection-list.html template="algorithms" data=algos limit=5 %}
-</div>
-<div class="mt-5">
-  <p class="font-weight-bold mb-2">Latest Competitive Programming Solutions</p>
-  {%- assign cpss = site.data.competitive_programming | reverse -%}
-  {% include collection-list.html template="competitive_programming" data=cpss limit=5 %}
-</div>
+{%- assign posts = site.posts | where: 'draft', false -%}
+{% for post in posts limit:5 %}
+  {% include excerpt.html post=post %}
+{% endfor %}

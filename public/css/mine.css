@@ -27,6 +27,8 @@ body {
   color: var(--font-color)
 }
 
+hr { width: 100%; margin: 2rem 0 3rem 0; }
+
 blockquote {
   padding: 10px 10px;
   font-size: var(--font-size-bg);
@@ -71,7 +73,7 @@ a.no-decoration:hover {
 }
 
 .sidebar {
-  flex: 0 0 250px;
+  flex: 0 0 200px;
   height: 100vh;
   color: var(--font-color)!important;
 }
@@ -83,6 +85,7 @@ a.no-decoration:hover {
 .sidebar a {
   color: var(--font-color)!important;
   font-weight: bold;
+  font-size: var(--font-size-bg);
 }
 
 .sidebar h2.site-title a {
@@ -103,7 +106,11 @@ a.no-decoration:hover {
 
 .sidebar .disclaimer {
   line-height: 1.5em;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-sm)!important;
+}
+
+.sidebar .disclaimer a {
+  font-size: var(--font-size-sm)!important;
 }
 
 .culture .double-danda { font-size: 18px; color: #8B0000; }

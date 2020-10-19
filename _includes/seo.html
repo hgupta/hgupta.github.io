@@ -1,3 +1,21 @@
+<meta name="generator" content="Jekyll v{{ jekyll.version }}" />
+{% capture desc %}{{ site.description }}{% endcapture %}
+{% if page.excerpt != "" and page.excerpt != nil %}
+{% assign excerpt = page.excerpt | markdownify | strip_html | strip | newline_to_br | replace: "<br />", " " | strip_newlines | replace: "   ", " " | replace: "  ", " " %}
+{% assign desc = desc | prepend: ";;" | prepend: excerpt %}
+{% endif %}
+<meta name="description" content="{{ desc | split: ";;" | join: " &verbar; " }}" />
+<meta property="og:description" content="{{ desc | split: ";;" | join: " &verbar; " }}" />
+<meta name="author" content="{{ site.author.name }}" />
+<meta property="og:locale" content="{{ page.lang | default: site.lang | default: "en" }}" />
+<link rel="canonical" href="{{ page.url | absolute_url }}" />
+<meta property="og:url" content="{{ page.url | absolute_url }}" />
+<meta property="og:site_name" content="{{ site.title }} &verbar; {{ site.subtitle }}" />
+{% if page.url contains 'blog' %}{% assign content_type = 'article' %}{% else %}{% assign content_type = 'website' %}{% endif %}
+<meta property="og:type" content="{{ content_type }}" />
+{% if page.date %}
+<meta property="article:published" content="{{ page.date | date_to_xmlschema  }}"/>
+{% endif %}
 <link rel="shortcut icon" type="image/png" href="{{ site.logo | absolute_url }}">
 <link rel="shortcut icon" sizes="196x196" href="{{ site.logo | absolute_url }}">
 <link rel="apple-touch-icon" href="{{ site.logo | absolute_url }}">

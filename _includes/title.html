@@ -3,4 +3,4 @@
 {% assign title = title | prepend: "," | prepend: page.title %}
 {% endif %}
 <title>{{ title | split: "," | join: " &verbar; " }}</title>
-
+<meta property="og:title" content="{{ title | split: "," | join: " &verbar; " }}" />

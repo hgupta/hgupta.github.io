@@ -23,7 +23,10 @@ js:
 
 author:
   name: Harsh Gupta
+  fname: Harsh
+  lname: Gupta
   location: New Delhi
+  country: India
   email: abc@abc.com
   website: https://hgupta.github.io/
   social:

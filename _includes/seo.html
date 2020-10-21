@@ -1,17 +1,16 @@
 <meta name="generator" content="Jekyll v{{ jekyll.version }}" />
 {% capture desc %}{{ site.description }}{% endcapture %}
 {% if page.excerpt != "" and page.excerpt != nil %}
-{% assign excerpt = page.excerpt | markdownify | strip_html | strip | newline_to_br | replace: "<br />", " " | strip_newlines | replace: "   ", " " | replace: "  ", " " %}
-{% assign desc = desc | prepend: ";;" | prepend: excerpt %}
+{% assign desc = page.excerpt | markdownify | strip_html | strip | newline_to_br | replace: "<br />", " " | strip_newlines | replace: "   ", " " | replace: "  ", " " %}
 {% endif %}
-<meta name="description" content="{{ desc | split: ";;" | join: " &verbar; " }}" />
-<meta property="og:description" content="{{ desc | split: ";;" | join: " &verbar; " }}" />
+<meta name="description" content="{{ desc }}" />
+<meta property="og:description" content="{{ desc }}" />
 <meta name="author" content="{{ site.author.name }}" />
 <meta property="og:locale" content="{{ page.lang | default: site.lang | default: "en" }}" />
 <link rel="canonical" href="{{ page.url | absolute_url }}" />
 <meta property="og:url" content="{{ page.url | absolute_url }}" />
 <meta property="og:site_name" content="{{ site.title }} &verbar; {{ site.subtitle }}" />
-{% if page.url contains 'blog' %}{% assign content_type = 'article' %}{% else %}{% assign content_type = 'website' %}{% endif %}
+{% if page.url == site.baseurl %}{% assign content_type = 'website' %}{% else %}{% assign content_type = 'article' %}{% endif %}
 <meta property="og:type" content="{{ content_type }}" />
 {% if page.date %}
 <meta property="article:published" content="{{ page.date | date_to_xmlschema  }}"/>

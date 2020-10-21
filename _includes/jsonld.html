@@ -1,0 +1,58 @@
+{% if page.url == site.baseurl %}
+  {% assign type = 'WebSite' %}
+  {% assign keywords = 'index' | split: ',' %}
+  {% assign post = site.posts | last %}
+{% else %}
+  {% assign type = 'BlogPosting' %}
+  {% assign keywords = page.tags | push: page.category %}
+  {% assign post = page %}
+{% endif %}
+{% assign keywords = keywords | push: site.title | push: site.subtitle | join: ',' | replace: '-', ' ' %}
+{% assign published = post.date | date_to_xmlschema %}
+{% assign modified = post.last_modified_on | default: post.date | date_to_xmlschema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "{{ type }}",
+  "url": "{{ page.url | absolute_url }}",
+  "name": {{ title | split: ',' | join: ' &verbar; ' | jsonify }},
+  "headline": {{ title | split: ',' | join: ' &verbar; ' | jsonify }},
+  "keywords": {{ keywords | jsonify }},
+  "description": {{ desc | jsonify }},
+  "datePublished": {{ published | jsonify }},
+  "dateModified": {{ modified | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": {{ site.author.name | jsonify }},
+    "givenName": {{ site.author.fname | jsonify }},
+    "familyName": {{ site.author.lname | jsonify }},
+    "email": {{ site.author.email | jsonify }},
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": {{ site.author.country | jsonify }},
+      "addressRegion": {{ site.author.location | jsonify }}
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "url": "{{ page.url | absolute_url }}",
+    "name": {{ title | split: ',' | join: ' &verbar; ' | jsonify }},
+    "logo": {
+      "@type": "ImageObject",
+      "width": 196,
+      "height": 196,
+      "url": "{{ site.logo | absolute_url }}"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "width": 196,
+    "height": 196,
+    "url": "{{ site.logo | absolute_url }}"
+  }
+}
+</script>

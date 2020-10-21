@@ -18,7 +18,7 @@ layout: base
   <div class="d-flex flex-wrap text-muted mt-3 mb-5 tags">
     <div class="font-weight-bold mt-1 p-1">Tags:</div>
     {%- for tag in page.tags -%}
-    <div class="ml-2 mt-1 p-1 border rounded tag">{{ tag }}</div>
+    <div class="ml-2 mt-1 p-1 border rounded tag">{{ tag | replace: '-', ' ' }}</div>
     {%- endfor -%}
   </div>
 </div>
